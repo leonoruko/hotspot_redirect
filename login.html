@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Tunyce WiFi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s, color 0.5s;
+            overflow: hidden;
+            padding: 10px;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            width: 100%;
+            max-width: 400px;
+            animation: popIn 1s ease-out;
+            z-index: 10;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--highlight-color);
+        }
+        p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--subtext-color);
+        }
+        .login-form input {
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 2px solid var(--input-border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+            transition: border-color 0.3s;
+        }
+        .login-form input:focus {
+            border-color: var(--input-focus-border-color);
+            outline: none;
+        }
+        .login-form button {
+            padding: 0.8rem 2rem;
+            margin: 1rem 0;
+            border: none;
+            border-radius: 5px;
+            background: var(--button-bg-color);
+            color: #ffffff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .login-form button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 105, 135, 0.5);
+        }
+        .footer p {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: var(--subtext-color);
+        }
+        #mode-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            cursor: pointer;
+            transition: transform 0.3s;
+            z-index: 10;
+        }
+        #mode-switch:hover {
+            transform: rotate(360deg);
+        }
+        .ad-banner {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            animation: slideInOut 10s linear infinite;
+        }
+        .ad-banner.left {
+            left: 10px;
+        }
+        .ad-banner.right {
+            right: 10px;
+            animation-delay: 5s;
+        }
+        @keyframes slideInOut {
+            0%, 100% { opacity: 0; transform: translateY(-50%) translateX(-100%); }
+            10%, 90% { opacity: 1; transform: translateY(-50%) translateX(0); }
+        }
+        :root {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --highlight-color: #e53935; /* Darker red for light mode */
+            --subtext-color: #333333;
+            --button-bg-color: #e53935; /* Darker red for light mode */
+            --input-border-color: #cccccc; /* Light gray border for inputs in light mode */
+            --input-focus-border-color: #e53935; /* Red border on focus in light mode */
+        }
+        [data-theme='dark'] {
+            --background-color: #000000;
+            --text-color: #ffffff;
+            --highlight-color: #d32f2f; /* Softer red for dark mode */
+            --subtext-color: #e0e0e0;
+            --button-bg-color: #d32f2f; /* Softer red for dark mode */
+            --input-border-color: #555555; /* Dark gray border for inputs in dark mode */
+            --input-focus-border-color: #d32f2f; /* Red border on focus in dark mode */
+        }
+        @keyframes popIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+            .login-form button {
+                font-size: 1rem;
+                padding: 0.7rem 1.5rem;
+            }
+        }
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            p {
+                font-size: 0.8rem;
+            }
+            .login-form button {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ad-banner left" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-OERHUIqnyFX0YkAdlpYEIoENABu9Vlo-wg&s');"></div>
+    <div class="ad-banner right" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx-zdKJS4l-L7Qa_JWSlVbhpnUgniXpoje7fWbKrVsO8dqnDxhCYHYFByoDbKAnL8T-Ec&usqp=CAU');"></div>
+    <div class="container">
+        <h1 style="font-family: 'Comic Neue', sans-serif;">Welcome to Tunyce WiFi</h1>
+        <p>Your gateway to endless entertainment and innovation!</p>
+        <form class="login-form" action="/login" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Connect</button>
+        </form>
+        <div class="footer">
+            <p>Enjoy secure, lightning-fast internet with Tunyce.</p>
+        </div>
+    </div>
+    <div id="mode-switch">🌗</div>
+    <script>
+        const modeSwitch = document.getElementById('mode-switch');
+        modeSwitch.addEventListener('click', () => {
+            const currentTheme = document.body.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.body.removeAttribute('data-theme');
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+            }
+        });
+    </script>
+</body>
+</html>
